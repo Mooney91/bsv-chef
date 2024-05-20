@@ -65,7 +65,12 @@ class TestGetRecipeReadiness:
             }
         ]
 
+
         rc = RecipeController(items_dao=mocked_dao)
+        rc.recipes = recipes
+
+        # Mock available items
+        # Mock calculate readiness
 
         return rc
 
@@ -83,6 +88,7 @@ class TestGetRecipeReadiness:
         """
         result = sut_recipecontroller.get_recipe(Diet(1), True)
         recipe = "recipe"
+        # Recipe would contain the string of the recipe that was optimal/random
 
         assert result == recipe
 
@@ -122,6 +128,5 @@ class TestGetRecipeReadiness:
         Test case 5: 
         """
         result = sut_recipecontroller.get_recipe(Diet(1), True)
-        recipe = "recipe"
 
         assert result == None
